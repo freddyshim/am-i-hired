@@ -1,0 +1,27 @@
+$logo-size: 10rem;
+
+.container {
+  @include hover-above-bg;
+
+  background-color: $color-secondary;
+  padding: 3rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s;
+  box-shadow: 0.3rem 0.3rem 0.1rem rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    background-color: $color-tertiary;
+  }
+}
+
+.link {
+  height: $logo-size;
+  width: $logo-size;
+}
+
+.logo {
+  height: inherit;
+}

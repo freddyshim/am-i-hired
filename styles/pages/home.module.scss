@@ -1,0 +1,89 @@
+.background {
+  background: {
+    image: linear-gradient(
+        to bottom right,
+        rgba($color-primary, 0.8),
+        rgba($color-secondary, 0.8)
+      ),
+      url(../../public/sky.jpg);
+    repeat: no-repeat;
+    size: cover;
+  }
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.background::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(
+      90deg,
+      rgba(255, 0, 0, 0.06),
+      rgba(0, 255, 0, 0.02),
+      rgba(0, 0, 255, 0.06)
+    );
+  z-index: 2;
+  background-size: 100% 4px, 4px 100%;
+  pointer-events: none;
+}
+
+.background::after {
+  content: '';
+  background-image: url('../../public/grid.png');
+  height: 300%;
+  width: 300%;
+  opacity: 0.35;
+  position: fixed;
+  left: -50%;
+  top: -100%;
+  animation: grain 8s steps(10) infinite;
+  pointer-events: none;
+}
+
+.header {
+  & span {
+    @include on-hover-undistort-text;
+    color: $color-tertiary;
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__answer {
+    @include on-hover-distort-text;
+    @include above-bg;
+    font-size: 18rem;
+  }
+
+  &__message {
+    @include hover-above-bg;
+    font-size: 2.4rem;
+    font-weight: 600;
+  }
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+
+  &__description {
+    margin-bottom: 1rem;
+  }
+}

@@ -1,0 +1,39 @@
+@mixin distorted-text {
+  text-shadow: -3px -1px 1px rgba(0, 30, 255, 0.5),
+    3px 1px 1px rgba(255, 0, 80, 0.5);
+}
+
+@mixin undistorted-text {
+  text-shadow: 0px 0px 1px rgba(0, 30, 255, 0.5),
+    0px 0px 1px rgba(255, 0, 80, 0.5);
+}
+
+@mixin on-hover-distort-text {
+  @include undistorted-text;
+
+  transition: all 0.3s;
+
+  &:hover {
+    @include distorted-text;
+  }
+}
+
+@mixin on-hover-undistort-text {
+  @include distorted-text;
+
+  transition: all 0.3s;
+
+  &:hover {
+    @include undistorted-text;
+  }
+}
+
+@mixin above-bg {
+  z-index: 3;
+}
+
+@mixin hover-above-bg {
+  &:hover {
+    @include above-bg;
+  }
+}
