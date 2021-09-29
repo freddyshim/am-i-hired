@@ -19,5 +19,7 @@ yarn dev
 ## Resources
 
 I borrowed ideas and code from other resources. Here are some resources that helped me build this site:
+
 Grainy texture overlay: https://css-tricks.com/snippets/css/animated-grainy-texture/
+
 CRT-style distortion effect: http://aleclownes.com/2017/02/01/crt-display.html
