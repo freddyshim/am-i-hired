@@ -51,8 +51,10 @@
 }
 
 .header {
+  @include hover-above-bg;
+
   & span {
-    @include on-hover-undistort-text;
+    @include hover-undistort-text;
     color: $color-tertiary;
   }
 }
@@ -64,8 +66,9 @@
   align-items: center;
 
   &__answer {
-    @include on-hover-distort-text;
+    @include hover-distort-text;
     @include above-bg;
+
     font-size: 18rem;
   }
 
@@ -84,6 +87,7 @@
   margin-bottom: 1rem;
 
   &__description {
+    @include hover-above-bg;
     margin-bottom: 1rem;
   }
 }

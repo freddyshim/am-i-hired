@@ -8,23 +8,27 @@
     0px 0px 1px rgba(255, 0, 80, 0.5);
 }
 
-@mixin on-hover-distort-text {
+@mixin hover-distort-text {
   @include undistorted-text;
 
   transition: all 0.3s;
 
-  &:hover {
+  &:hover,
+  &:focus {
     @include distorted-text;
+    outline: none;
   }
 }
 
-@mixin on-hover-undistort-text {
+@mixin hover-undistort-text {
   @include distorted-text;
 
   transition: all 0.3s;
 
-  &:hover {
+  &:hover,
+  &:focus {
     @include undistorted-text;
+    outline: none;
   }
 }
 
@@ -33,7 +37,9 @@
 }
 
 @mixin hover-above-bg {
-  &:hover {
+  &:hover,
+  &:focus {
     @include above-bg;
+    outline: none;
   }
 }

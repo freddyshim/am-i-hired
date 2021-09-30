@@ -10,31 +10,40 @@ interface ContactItemProps {
 }
 
 const ContactItem = ({ type }: ContactItemProps) => {
-  const renderImage = () => {
-    let src = ''
-    let link = ''
-    switch (type) {
-      case 'github':
-        src = GitHub.src
-        link = 'https://github.com/freddyshim'
-        break
-      case 'linkedin':
-        src = LinkedIn.src
-        link = 'https://linkedin.com/in/freddy-shim'
-        break
-      default:
-        src = Website.src
-        link = 'https://freddyshim.com'
-    }
-
-    return (
-      <a className={styles.link} href={link} target="_blank">
-        <img className={styles.logo} src={src} />
-      </a>
-    )
+  let src: string, link: string, alt: string, description: string
+  switch (type) {
+    case 'github':
+      src = GitHub.src
+      link = 'https://github.com/freddyshim'
+      alt = 'GitHub link'
+      description = 'GitHub'
+      break
+    case 'linkedin':
+      src = LinkedIn.src
+      link = 'https://linkedin.com/in/freddy-shim'
+      alt = 'LinkedIn link'
+      description = 'LinkedIn'
+      break
+    default:
+      src = Website.src
+      link = 'https://freddyshim.com'
+      alt = 'personal site link'
+      description = 'Personal'
   }
 
-  return <div className={styles.container}>{renderImage()}</div>
+  return (
+    <div className={styles.item}>
+      <a
+        className={styles.item__link}
+        href={link}
+        target="_blank"
+        rel="noopener"
+      >
+        <img className={styles.item__link__logo} src={src} alt={alt} />
+      </a>
+      <h3 className={styles.item__description}>{description}</h3>
+    </div>
+  )
 }
 
 export default ContactItem

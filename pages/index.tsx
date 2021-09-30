@@ -26,17 +26,21 @@ const Home = ({ name, company }: GithubData) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.background}>
-        <header className={styles.header}>
+        <header className={styles.header} tabIndex={0}>
           <h1>
             Is <span>{name}</span> hired?
           </h1>
         </header>
         <main className={styles.main}>
-          <h2 className={styles.main__answer}>{yesOrNo}</h2>
-          <aside className={styles.main__message}>{message}</aside>
+          <h2 className={styles.main__answer} tabIndex={0}>
+            {yesOrNo}
+          </h2>
+          <aside className={styles.main__message} tabIndex={0}>
+            {message}
+          </aside>
         </main>
         <footer className={styles.footer}>
-          <h2 className={styles.footer__description}>
+          <h2 className={styles.footer__description} tabIndex={0}>
             Contact {name.split(' ')[0]}
           </h2>
           <Contact />
