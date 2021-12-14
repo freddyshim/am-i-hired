@@ -4,10 +4,10 @@ WORKDIR /app
 COPY package*.json .
 # install PM2 globally
 RUN npm install --global pm2
-# install typescript so we can build the project
-RUN npm install --dev typescript
-# install dependencies
-RUN npm install --production
+# AWS Elastic Beanstalk doesn't support stage naming
+# so we have to install dev dependencies to properly build and run the app
+RUN npm install
+ENV NODE_ENV=production
 # copy all files
 COPY . .
 # build app
