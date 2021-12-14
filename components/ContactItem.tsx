@@ -38,7 +38,7 @@ const ContactItem = ({ type }: ContactItemProps) => {
         className={styles.item__link}
         href={link}
         target="_blank"
-        rel="noopener noreferrer"
+        rel="noopener"
       >
         <Image src={src} alt={alt} width="100%" height="100%" />
       </a>
