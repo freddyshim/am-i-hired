@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import styles from '@styles/components/ContactItem.module.scss'
 import GitHub from '@public/github.png'
 import LinkedIn from '@public/linkedin.png'
@@ -37,9 +38,9 @@ const ContactItem = ({ type }: ContactItemProps) => {
         className={styles.item__link}
         href={link}
         target="_blank"
-        rel="noopener"
+        rel="noopener noreferrer"
       >
-        <img className={styles.item__link__logo} src={src} alt={alt} />
+        <Image src={src} alt={alt} width="100%" height="100%" />
       </a>
       <h3 className={styles.item__description}>{description}</h3>
     </div>
