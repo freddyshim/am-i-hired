@@ -10,7 +10,8 @@ jobs:
     steps:
       - name: Checkout source code
         uses: actions/checkout@v2
-      - run: | 
+      - name: Build docker images
+        run: | 
         docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
         docker build -t fhsshim/amihired-client .
         docker build -t fhsshim/amihired-proxy .
