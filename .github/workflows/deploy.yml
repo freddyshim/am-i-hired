@@ -12,11 +12,11 @@ jobs:
         uses: actions/checkout@v2
       - name: Build docker images
         run: | 
-        docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-        docker build -t fhsshim/amihired-client .
-        docker build -t fhsshim/amihired-proxy .
-        docker push fhsshim/amihired-client
-        docker push fhsshim/amihired-proxy
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+          docker build -t fhsshim/amihired-client .
+          docker build -t fhsshim/amihired-proxy .
+          docker push fhsshim/amihired-client
+          docker push fhsshim/amihired-proxy
   deploy:
     needs: build
     steps:
