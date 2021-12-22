@@ -1,18 +1,19 @@
-FROM node:17-alpine
+# dependency stage
+FROM node:16.13.1-alpine AS deps
+RUN apk add --no-cache libc6-compat
 WORKDIR /app
-# copy package.json and package-lock.json
 COPY package*.json ./
-# AWS Elastic Beanstalk doesn't support stage naming
-# so we have to install dev dependencies to properly build and run the app
-RUN npm install
-ENV NODE_ENV=production
-# copy all files
+RUN npm install 
+
+# build stage
+FROM node:16.13.1-alpine AS build
+WORKDIR /app
 COPY ./ ./
-# build app
+COPY --from=deps /app/node_modules ./node_modules
+RUN npm install pm2 -g
 RUN npm run build
-# expose listening port
+ENV NODE_ENV=production
+RUN npm prune --production
 EXPOSE 3000
-# run container as non-root user
 USER node
-# run script when container starts
-CMD ["npm", "start"]
+CMD [ "pm2-runtime", "start", "npm", "--", "start" ]
