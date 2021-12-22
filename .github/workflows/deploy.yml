@@ -24,7 +24,7 @@ jobs:
       - name: Checkout source code
         uses: actions/checkout@v2
       - name: Generate deployment package
-        run: cd deploy && zip -r ../deploy.zip ./docker-compose.yml
+        run: zip -r deploy.zip docker-compose.yml
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v20
         with:
