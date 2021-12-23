@@ -14,7 +14,7 @@ jobs:
         run: | 
           docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
           docker build -t fhsshim/amihired-app .
-          docker build -t fhsshim/amihired-proxy .
+          docker build -t fhsshim/amihired-proxy ./nginx
           docker push fhsshim/amihired-app
           docker push fhsshim/amihired-proxy
   deploy:
